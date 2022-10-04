@@ -54,7 +54,7 @@ int main()
     //prints each team's leader and members
     for(i = k = 0; i <= 11; k++)
     {
-        printf("%s, you are leader of group %c!\n", name[i], team[k]);
+        printf("%s, you are leader of group %c!.. ", name[i], team[k]);
         i++;
 
         //prints the next following three elements
