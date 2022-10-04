@@ -1,3 +1,5 @@
+//made by Ben Carpenter :3
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -9,18 +11,20 @@ int main()
     int i;
     int j;
 
-    //array of team letters
-    const char teamsArray[] = {'A', 'B', 'C'};
+    //array containing the three group's letter identifiers
+    const char teams[] = {'A', 'B', 'C'};
 
     //array of strings with 21 character max per array element
-    char namesArray[][20] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+    char names[][20] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
 
-    //copy user inputs to array elements
-    for(i = 0; i <= 11; i++)
+    printf("enter 12 names.\n\n");
+
+    //copy input strings to array elements
+    for(i = 1; i <= 12; i++)
     {
-        printf("\nenter a name: ");
+        printf("name %d: ", i);
         scanf("%s", str);
-        strcpy(namesArray[i], str);
+        strcpy(names[i-1], str);
     }
 
     //seed rand function with system time
@@ -29,31 +33,31 @@ int main()
     //set rand max
     j = rand() % 11;
 
-    //shuffle array elements without any overlap
+    //shuffle names array elements without any overlap
     for(i = 0; i < 11; i++)
     {
-        //copy namesArray[i] (i = 0 first pass) element to a str for safekeeping
-        strcpy(str, namesArray[i]);
+        //copy names[i] >> str for safekeeping
+        strcpy(str, names[i]);
 
-        //copy namesArray[j] (j = rand) element to namesArray[i]
-        strcpy(namesArray[i], namesArray[j]);
+        //copy names[j] >> namesArray[i]
+        strcpy(names[i], names[j]);
 
-        //copy str to namesArray[j]
-        strcpy(namesArray[j], str);
+        //copy str >> names[j]
+        strcpy(names[j], str);
     }
 
     //print each team's leader and members
     for(i = 0; i <= 2; i++)
     {
-        printf("%s, you are team leader of group %c!\n", namesArray[0], teamsArray[i]);
+        printf("\n%s, you are team leader of group %c!\n", names[0], teams[i]);
 
         //print other three members of group
         for (j = 1; j <= 3; j++)
         {
-            printf("%s, ", namesArray[j]);
+            printf("%s, ", names[j]);
         }
 
-        printf("you also belong to group %c.\n\n", teamsArray[i]);
+        printf("you also belong to group %c.\n", teams[i]);
     }
 
     return 0;
