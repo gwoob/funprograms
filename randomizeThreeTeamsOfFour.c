@@ -9,6 +9,7 @@ int main()
     int i;
     int j;
 
+    //array of strings with 21 character max per array element
     char namesArray[][20] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
 
     //copy user inputs to array elements
@@ -37,35 +38,35 @@ int main()
     }
 
     printf("%s, you are team leader of group A!\n", namesArray[0]);
-    
+
     //print the other three members of group A in sequence
     for(i = 1; i <= 3; i++)
     {
         printf("%s, ", namesArray[i]);
     }
-    
+
     printf("you also belong to group A.\n\n");
 
 
     printf("%s, you are team leader of group B!\n", namesArray[4]);
-    
+
     //print the other three members of group B in sequence
     for(i = 5; i <= 7; i++)
     {
         printf("%s, ", namesArray[i]);
     }
-    
+
     printf("you also belong to group B.\n\n");
 
 
     printf("%s, you are team leader of group C!\n", namesArray[8]);
-    
+
     //print the other three members of group A in sequence
     for(i = 9; i <= 11; i++)
     {
         printf("%s, ", namesArray[i]);
     }
-    
+
     printf("you also belong to group C.\n\n");
 
     return 0;
