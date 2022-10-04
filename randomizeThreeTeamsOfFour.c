@@ -1,4 +1,4 @@
-//made by Ben Carpenter :3
+//made by ben carpenter October 2022
 
 #include <stdio.h>
 #include <string.h>
@@ -10,54 +10,61 @@ int main()
     char str[20];
     int i;
     int j;
+    int k;
 
-    //array containing the three group's letter identifiers
-    const char teams[] = {'A', 'B', 'C'};
+    //array containing group names
+    const char team[] = {'A', 'B', 'C'};
 
-    //array of strings with 21 character max per array element
-    char names[][20] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+    //array of strings with 21 character max per element
+    char name[][20] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
 
-    printf("enter 12 names.\n\n");
+    printf("enter 12 names.\n");
 
-    //copy input strings to array elements
+    //copies input strings to array elements
+    //for loop starts with i = 1 not i = 0 to make sure 1-12 is displayed instead of 0-11
     for(i = 1; i <= 12; i++)
     {
         printf("name %d: ", i);
         scanf("%s", str);
-        strcpy(names[i-1], str);
+        strcpy(name[i-1], str);
     }
 
-    //seed rand function with system time
+    //seeds rand function with system time
     srand(time(NULL));
 
-    //set rand max
+    //sets rand max
     j = rand() % 11;
 
-    //shuffle names array elements without any overlap
-    for(i = 0; i < 11; i++)
+    //shuffles name array elements without any overlap
+    for(i = 0; i <= 11; i++)
     {
-        //copy names[i] >> str for safekeeping
-        strcpy(str, names[i]);
+        //copies name[i] >> str
+        strcpy(str, name[i]);
 
-        //copy names[j] >> namesArray[i]
-        strcpy(names[i], names[j]);
+        //copies name[j] >> name[i]
+        strcpy(name[i], name[j]);
 
-        //copy str >> names[j]
-        strcpy(names[j], str);
+        //copies str >> name[j]
+        strcpy(name[j], str);
     }
 
-    //print each team's leader and members
-    for(i = 0; i <= 2; i++)
-    {
-        printf("\n%s, you are team leader of group %c!\n", names[0], teams[i]);
+    //clears screen
+    system("clear");
 
-        //print other three members of group
-        for (j = 1; j <= 3; j++)
+    //prints each team's leader and members
+    for(i = k = 0; i <= 11; k++)
+    {
+        printf("%s, you are leader of group %c!\n", name[i], team[k]);
+        i++;
+
+        //prints the next following three elements
+        for(j = 0; j <= 2; j++)
         {
-            printf("%s, ", names[j]);
+            printf("%s, ", name[i]);
+            i++;
         }
 
-        printf("you also belong to group %c.\n", teams[i]);
+        printf("you are members of group %c.\n\n", team[k]);
     }
 
     return 0;
