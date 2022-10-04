@@ -26,7 +26,7 @@ int main()
     {
         printf("name %d: ", i);
         scanf("%s", str);
-        strcpy(name[i-1], str);
+        strcpy(name[i - 1], str);
     }
 
     //seeds rand function with system time
