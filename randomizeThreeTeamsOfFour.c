@@ -1,4 +1,4 @@
-//made by ben carpenter October 2022
+//ben carpenter October 2022
 
 #include <stdio.h>
 #include <string.h>
