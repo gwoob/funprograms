@@ -12,7 +12,7 @@ int main()
     int cmp2;
 
     i = 0;
-    while(i < 1 )
+    while(i < 1)
     {
         printf("do you like boys?");
         scanf("%s", inpt);
